@@ -7,6 +7,9 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
+  <body onresize="Reset()" ,scroll= no, style="overflow:hidden">  
+      <div id="gameContainer" style="width: 100%; height: 100%;margin:auto" ></div>        
+  </body>
   <body>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=1920 height=1080></canvas>
@@ -37,6 +40,10 @@
       // Modify or remove this function to customize the visually presented
       // way that non-critical warnings and error messages are presented to the
       // user.
+	
+	  
+	  
+	  
       function unityShowBanner(msg, type) {
         function updateBannerVisibility() {
           warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
@@ -100,7 +107,12 @@
       }
 
       loadingBar.style.display = "block";
-
+  function Reset()
+    {
+        //var canvas = document.getElementById("#canvas");              //获取#canvas
+        canvas.height=  document.documentElement.clientHeight;        //获取body可见区域高度
+        canvas.width =  document.documentElement.clientWidth;         //获取body可见区域高度
+    }
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
